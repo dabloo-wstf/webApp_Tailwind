@@ -1,0 +1,115 @@
+.mainContainer{
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  overflow: scroll;
+}
+.tokenList {
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-top: 10px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+  padding: 2px;
+  min-width: 406px;
+  max-width: 400px;
+  font-size: .7em;
+
+}
+.tokenList_first_child{
+
+  display: flex;
+ align-items: center;
+
+}
+input:focus {
+  outline: none; /* Removes the default focus border */
+  border-color: initial; /* Resets the border color to its initial value */
+}
+.main-container{
+  display: flex;
+  /* border: solid 1px red; */
+  justify-content: center;
+  margin: auto;
+  flex-direction: column;
+  min-width: 368px;
+  position: fixed;
+  top: 5%;
+  left: 15%;
+  
+}
+.inner-main{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tokenLogo {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  border-radius: 100%;
+}
+.selectedTokenContainer{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  padding: 10px;
+}
+.selectedToken {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin-top: 10px;
+}
+.inputField {
+  width: 90%;
+  padding: 10px;
+  margin: 5px 0;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Optional styling for placeholder text */
+.inputField::placeholder {
+  color: #999;
+}
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid #3498db; /* You can replace this color with your desired color */
+  border-radius: 5px;
+  color: #ffffff;
+  background-color: #3498db; /* You can replace this color with your desired color */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.button:hover {
+  background-color: #ffffff;
+  color: #3498db; /* You can replace this color with your desired color */
+  border-color: #3498db; /* You can replace this color with your desired color */
+}

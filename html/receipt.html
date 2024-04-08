@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+</html>
+<heac>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</heac>
+<body>
+    <div>
+        this is receipt page
+    </div>
+    <div id="reciept-text">
+        <p>Thank you for your purchase</p>
+        <p>Order ID: 123456</p>
+        <p>Amount: $100</p>
+    </div>
+<script>
+    //extract txhash from query param 
+    //find transaction details from txhash
+    //replace receipt-text id with the data received
+    //if no data received, show error message
+    //if error message, show error message
+    //if no txhash, show error message
+    //if no query param, show error message
+    const urlParams = new URLSearchParams(window.location.search);
+    const txhash = urlParams.get('txhash');
+    if(txhash){
+        //fetch transaction details
+        fetch('https://api.blockcypher.com/v1/eth/main/txs/'+txhash)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            if(data){
+                document.getElementById('reciept-text').innerHTML = `
+                    <p>Transaction Hash: ${txhash}</p>
+                    <p>Block Height: ${data.block_height}</p>
+                    <p>Block Hash: ${data.block_hash}</p>
+                    <p>Received Time: ${data.received}</p>
+                    <p>Confirmed Time: ${data.confirmed}</p>
+                    <p>Confirmations: ${data.confirmations}</p>
+                    <p>Fee: ${data.fees}</p>
+                    <p>Inputs: ${data.inputs[0].addresses[0]}</p>
+                    <p>Outputs: ${data.outputs[0].addresses[0]}</p>
+                `;
+            }else{
+                document.getElementById('reciept-text').innerHTML = `
+                    <p>Transaction details not found</p>
+                `;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('reciept-text').innerHTML = `
+                <p>Transaction details not found</p>
+            `;
+        });
+    }
+</script>
+</body>
+</html>
+
